@@ -116,9 +116,9 @@ const editRow = user =>{
               </Fragment>
           )}
           </div>
-          )}
-            <h2>Add User</h2>
-            <AddUserForm addUser={addUser}/>
+          
+            
+            
           </div>
           <div className="flex-large">
             <h2>View Users</h2>
