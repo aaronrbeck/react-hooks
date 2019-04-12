@@ -1,14 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const EditUserForm = props =>{
 
-const [user, setUser] = useState(props.currentUser)
+    const [user, setUser] = useState(props.currentUser)
+    
+
+    //I'm not compiling, this useEffect is undefined?  why?
+    //figured it out, failed to bring useEffect in during the import
+    //statement
+    useEffect(
+        () => {
+        setUser(props.currentUser)
+    },
+     [props]
+     )
+
+
 
 const handleInputChange = event => {
     const { name, value } = event.target
 
     setUser({...user, [name]:value })
 }
+
+
+
 
 return (
     <form 
