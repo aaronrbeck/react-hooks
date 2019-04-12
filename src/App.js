@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UserTable from './tables/UserTable'
 import AddUserForm from './forms/AddUserForm'
+import EditUserForm from './forms/EditUserForm'
 
 
 const App = () => {
@@ -50,6 +51,27 @@ const deleteUser = id => {
       <h1>CRUD app with Hooks</h1>
         <div className="flex-row">
           <div className = "flex-large">
+{/* create a toggle with ternary if edting state is t/f : show edit/show add
+   */}       {editing ? ( 
+            <div>
+              <h2>Edit User</h2>
+              <EditUserForm
+    // unclear on what the { items inside } below reference
+
+                editing={editing}
+                setEditing={setEditing}
+                currentUser = {currentUser}
+                updateUser = {updateUser }
+                />
+                </div>
+          ) : (
+            <div>
+              <h2>Add user</h2>
+              <AddUserForm addUser={addUser}/>
+              </div>
+          )}
+          </div>
+          )}
             <h2>Add User</h2>
             <AddUserForm addUser={addUser}/>
           </div>
@@ -58,7 +80,7 @@ const deleteUser = id => {
             <UserTable users={users} editRow={editRow} deleteUser={deleteUser}/>
           </div>
       </div>
-    </div>
+    
   )
 }
 
